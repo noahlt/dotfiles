@@ -1,0 +1,6 @@
+emacs.font: -windows-proggysquare-medium-r-normal--11-80-96-96-c-70-iso8859-1
+rxvt.font: -windows-proggysquare-medium-r-normal--11-80-96-96-c-70-iso8859-1
+rxvt.background: gray10
+rxvt.foreground: gray90
+rxvt.scrollBar: False
+rxvt.visualBell: True

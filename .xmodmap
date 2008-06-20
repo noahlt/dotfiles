@@ -1,0 +1,18 @@
+!
+! Noah Tye's .xmodmap file, made for his macbook (and may not work
+! on other machines).
+!
+
+! swap capslock and control_L
+! (this can be run any number of times with the same result)
+keycode 66 = Control_L
+keycode 37 = Caps_Lock
+add Lock = Caps_Lock
+add Control = Control_L
+
+! left apple key is alt
+remove mod4 = Super_L
+add mod1 = Super_L
+
+! right apple key is mod4
+add mod4 = Super_R
