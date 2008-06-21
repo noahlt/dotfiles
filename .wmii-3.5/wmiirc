@@ -160,6 +160,8 @@ eventstuff() {
 		wmiir xwrite /tag/sel/ctl select down
 	Key $MODKEY-$UP
 		wmiir xwrite /tag/sel/ctl select up
+	Key $MODKEY-slash
+	        wmiir xwrite /ctl view im
 	Key $MODKEY-Shift-$LEFT
 		wmiir xwrite /tag/sel/ctl send sel left
 	Key $MODKEY-Shift-$RIGHT
