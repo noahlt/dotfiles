@@ -1,12 +1,13 @@
 #!/bin/bash
 
-USER=noah
+USER=`whoami`
 
 # add wicd to the apt repositories
-echo deb http://apt.wicd.net gutsy extras
+UBUNTU_VERSION=`grep CODENAME /etc/lsb-release | sed s/.*=//`
+echo deb http://apt.wicd.net $UBUNTU_VERSION extras | sudo tee -a /etc/apt/sources.list
 
 # install stuff
-sudo apt-get install wmii emacs rxvt gpomme wicd
+sudo apt-get install wmii emacs rxvt gpomme python-setuptools wicd
 
 # copy wmii configuration files
 WMII_VERSION=`wmii -v | sed s/,.*//`
@@ -16,3 +17,7 @@ then
   sudo chown $USER ~/$WMII_VERSION/*
   sudo chgrp $USER ~/$WMII_VERSION/*
 fi
+
+
+# web dev stuff
+sudo easy_install pylons
