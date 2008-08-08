@@ -7,6 +7,7 @@ UBUNTU_VERSION=`grep CODENAME /etc/lsb-release | sed s/.*=//`
 echo deb http://apt.wicd.net $UBUNTU_VERSION extras | sudo tee -a /etc/apt/sources.list
 
 # install stuff
+sudo apt-get update
 sudo apt-get install wmii emacs rxvt gpomme python-setuptools wicd
 
 # web dev stuff

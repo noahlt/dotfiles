@@ -142,7 +142,7 @@ eventstuff() {
 		Action $(actionlist | eval $WMII_MENU) &
 	Key $MODKEY-space
 		sh -c "$(eval $WMII_MENU <$progsfile)" &
-	Key $MODKEY-t
+	Key $MODKEY-g
 		wmiir xwrite /ctl "view $(tagsmenu)" &
 	Key $MODKEY-Return
 		eval $WMII_TERM &
@@ -152,7 +152,7 @@ eventstuff() {
 		wmiir xwrite /client/sel/ctl Fullscreen toggle
 	Key $MODKEY-Shift-c
 		wmiir xwrite /client/sel/ctl kill
-	Key $MODKEY-Shift-t
+	Key $MODKEY-Shift-g
 		wmiir xwrite "/client/$(wmiir read /client/sel/ctl)/tags" "$(tagsmenu)" &
 	Key $MODKEY-$LEFT
 		wmiir xwrite /tag/sel/ctl select left
