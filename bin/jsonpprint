@@ -1,0 +1,12 @@
+#!/usr/bin/env python
+
+import sys
+import json
+from pprint import pprint
+
+if __name__ == '__main__':
+	for line_number, line in enumerate(sys.stdin):
+		try:
+			print pprint(json.loads(line), width=2)
+		except ValueError as e:
+			print "ERROR (line %i): %s" % (line_number+1, e.message)

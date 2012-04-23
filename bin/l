@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# if [ ! -n "$1" ]
+# then
+# 	echo 'gone'
+# else
+# 	echo 'there'
+# fi
+
+if [ ! -n "$1" ]
+then
+	ls -G .
+elif [ "$(file $1)" == "$1: directory" ]
+then
+	ls -G $1
+else
+	less $1
+fi

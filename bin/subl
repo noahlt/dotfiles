@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ $1 == "t" ]
+then
+	sublime ~/workspace/twitter
+elif [ $1 == "m" ]
+then
+	sublime ~/workspace/twitter-mobile
+elif [ $1 == "c" ]
+then
+	sublime ~/workspace/config
+else
+	sublime $@
+fi

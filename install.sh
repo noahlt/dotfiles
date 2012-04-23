@@ -1,5 +1,10 @@
 #!/bin/bash
 
+echo "Copying utility scripts into ~/bin"
+mkdir -p ~/bin
+cp ./bin/* ~/bin
+
+
 if [ ! -d /Library/org.pqrs/KeyRemap4MacBook/ ]
 then
 	echo "Installing KeyRemap4MacBook..."
