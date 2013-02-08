@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+  This file for KeyRemap4Macbook lets you copy and paste with mouse
+  buttons 4 and 5, which on my mouse (Logitech Wireless Performance MX)
+  are located on the side of the mouse.
+
+  Note thot KeyRemap4Macbook catches keycodes before they are mapped to
+  specific characters, so we have to use the KeyCode labels for QWERTY,
+  even though I type in Dvorak.  So V is KeyCode::DOT, and C is KeyCode::I.
+-->
+<root>
+  <item>
+    <name>Copy/Paste with Mouse (for Dvorak)</name>
+    <item>
+      <name>Copy/Paste with Mouse</name>
+      <identifier>remap.noah_pointingbuttontokey_buttontokey</identifier>
+      <autogen>__PointingButtonToKey__ PointingButton::BUTTON4, KeyCode::DOT, ModifierFlag::COMMAND_R</autogen>
+      <autogen>__PointingButtonToKey__ PointingButton::BUTTON5, KeyCode::I, ModifierFlag::COMMAND_R</autogen>
+    </item>
+  </item>
+</root>
