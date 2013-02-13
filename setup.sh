@@ -3,6 +3,11 @@
 echo "Show Library directory in Finder"
 chflags nohidden ~/Library/
 
+echo "Save screenshots to ~/Pictures/Screenshots"
+mkdir -p ~/Pictures/Screenshots
+defaults write com.apple.screencapture location ~/Pictures/Screenshots
+killall SystemUIServer # for the changes to take effect immediately
+
 # Setup custom keyboard.
 
 echo "Copying NoahDvorak to ~/Library/Keyboard Layouts"
