@@ -8,6 +8,10 @@ mkdir -p ~/Pictures/Screenshots
 defaults write com.apple.screencapture location ~/Pictures/Screenshots
 killall SystemUIServer # for the changes to take effect immediately
 
+echo "Hide all desktop icons"
+defaults write com.apple.finder CreateDesktop -bool false
+killall Finder # for the changes to take effect immediately
+
 # Setup custom keyboard.
 
 echo "Copying NoahDvorak to ~/Library/Keyboard Layouts"
