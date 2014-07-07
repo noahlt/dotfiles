@@ -1,3 +1,9 @@
+; To use this file, load it in .emacs:
+;
+;     (load ~/dotfiles/emacs)
+;
+
+
 ;; Appearance 
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
@@ -154,7 +160,14 @@
 (add-to-list 'package-archives
   '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
-;(add-to-list 'load-path "~/dotfiles/emacs")
+(add-to-list 'load-path "~/dotfiles/emacs")
+
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
+(dolist (extension (list "\\.text\\'" "\\.md\\'" "\\.markdown\\'"))
+  (add-to-list 'auto-mode-alist (cons extension 'markdown-mode)))
+
+
 
 ; Make emacs' path the same as bash's path.
 ;(require 'exec-path-from-shell)
