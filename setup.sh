@@ -12,6 +12,25 @@ echo "Hide all desktop icons"
 defaults write com.apple.finder CreateDesktop -bool false
 killall Finder # for the changes to take effect immediately
 
+echo "Load emacs config from dotfiles repo instead of ~/.emacs"
+if [ -e ~/.emacs ]
+then
+    if [ -e ~/.emacs.old ]
+    then
+	echo
+	echo "* Couldn't back up ~/.emacs to ~/.emacs.old because it already exists!"
+	echo "* If you don't care about the contents of ~/.emacs.old, then you can"
+        echo "* delete that file and try running this script again."
+	echo
+	echo "Quitting."
+	exit 1
+    else
+	echo "(copying old ~/.emacs to ~/.emacs.old)"
+	mv ~/.emacs ~/.emacs.old
+    fi
+fi
+echo '(load "~/dotfiles/emacs/init.el")' > ~/.emacs
+
 # Setup custom keyboard.
 
 echo "Copying NoahDvorak to ~/Library/Keyboard Layouts"
