@@ -3,6 +3,10 @@
 ;     (load ~/dotfiles/emacs)
 ;
 
+;; General behavior
+
+(setq user-emacs-directory "~/dotfiles/emacs")
+
 
 ;; Appearance 
 
