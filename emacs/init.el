@@ -61,10 +61,7 @@
 
 ;; Key bindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;(global-set-key (kbd "C-w") 'backward-kill-word) ; qwerty
-;(global-set-key (kbd "C-c C-m") 'execute-extended-command) ; qwerty
 (global-set-key (kbd "C-x C-k") 'kill-region)
-(global-set-key (kbd "C-c C-k") 'kill-region)
 (global-set-key (kbd "C-a") 'noah-beginning-of-line)
 (global-set-key (kbd "M-c") 'capitalize-previous-word)
 (global-set-key (kbd "C-<return>") 'newline-and-indent)
@@ -72,7 +69,6 @@
 (global-set-key (kbd "M-z") 'execute-extended-command) ; dvorak
 (global-set-key (kbd "C-h") 'backward-delete-char-untabify) ; dvorak
 (global-set-key (kbd "C-S-h") 'noah-backward-kill)
-(global-set-key (kbd "M-g") 'goto-line)
 (global-set-key (kbd "M-p") 'hippie-expand)
 
 ; Okay, so here's some gnarly stuff.  Emacs tends to interpret C-m as
@@ -86,23 +82,11 @@
 
 (global-set-key (kbd "C-?") 'help)
 
-;;;; Textmate commands
-; (I don't use a typical emacs+OSX keyboard layout, so the built-in
-; bindings don't work well for me.)
+;;;; Navigation commands
+(global-set-key (kbd "M-n M-l") 'goto-line)
 
-(global-set-key (kbd "M-<return>") 'textmate-next-line)
-;(define-key map [(control c)(control t)] 'textmate-clear-cache)
-;(define-key map [(control c)(control a)] 'align)
-(global-set-key (kbd "C-<tab>") 'textmate-shift-right)
-(global-set-key (kbd "C-S-<tab>") 'textmate-shift-left)
-(global-set-key (kbd "M-t") 'textmate-goto-file)
-;(global-set-key [(meta shift l)] 'textmate-select-line)
-;(global-set-key [(meta shift t)] 'textmate-goto-symbol)
-
-(global-set-key (kbd "<f5>")
-	        (lambda ()
-		  (interactive)
-		  (find-file "~/workspace/twitter/README.md")))
+;;;; git commands
+(global-set-key (kbd "M-g M-s") 'magit-status)
 
 ;;;; Custom "programmer layout" using right alt key
 
@@ -125,6 +109,9 @@
 
 (global-set-key (kbd "A-'") (make-insert-function "\""))
 (global-set-key (kbd "A-/") (make-insert-function "\\"))
+(global-set-key (kbd "A-`") (make-insert-function "~"))
+(global-set-key (kbd "A-1") (make-insert-function "!"))
+(global-set-key (kbd "A-2") (make-insert-function "@"))
 (global-set-key (kbd "A-3") (make-insert-function "#"))
 (global-set-key (kbd "A-4") (make-insert-function "$"))
 (global-set-key (kbd "A-5") (make-insert-function "%"))
@@ -135,7 +122,6 @@
 (global-set-key (kbd "A-;") (make-insert-function "ö"))
 (global-set-key (kbd "A-x") (make-insert-function "×"))
 (global-set-key (kbd "A-X") (make-insert-function "÷"))
-(global-set-key (kbd "A-`") (make-insert-function "✓"))
 
 ;(global-set-key (kbd "<") (make-insert-function "‘"))
 
