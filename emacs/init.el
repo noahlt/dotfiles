@@ -68,10 +68,18 @@
 (global-set-key (kbd "M-z") 'execute-extended-command) ; dvorak
 (global-set-key (kbd "C-h") 'backward-delete-char-untabify) ; dvorak
 (global-set-key (kbd "C-S-h") 'noah-backward-kill)
-(global-set-key (kbd "C-x C-o") 'other-frame)
 (global-set-key (kbd "M-g") 'goto-line)
 (global-set-key (kbd "M-p") 'hippie-expand)
-(global-set-key (kbd "C-S-m") 'goto-match-paren)
+
+; Okay, so here's some gnarly stuff.  Emacs tends to interpret C-m as
+; RET and C-i as TAB, which means we can't just define C-m and C-i, we
+; have to translate C-m to H-m and C-i to H-i then bind commands to
+; H-m and H-i instead.
+;
+; solution from http://stackoverflow.com/questions/1792326/how-do-i-bind-a-command-to-c-i-without-changing-tab/11319885#11319885
+(define-key input-decode-map (kbd "C-m") (kbd "H-m"))
+(global-set-key (kbd "H-m") 'goto-matching-paren)
+
 (global-set-key (kbd "C-?") 'help)
 
 ;;;; Textmate commands
@@ -225,7 +233,7 @@
     (capitalize-word 1)
     (goto-char init-pos)))
 
-(defun goto-match-paren (arg)
+(defun goto-matching-paren (arg)
   "Go to the matching  if on (){}[], similar to vi style of % "
   (interactive "p")
   ;; first, check for "outside of bracket" positions expected by forward-sexp, etc.
@@ -235,6 +243,7 @@
         ((looking-at "[\]\)\}]") (forward-char) (backward-sexp))
         ((looking-back "[\[\(\{]" 1) (backward-char) (forward-sexp))
         (t nil)))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
