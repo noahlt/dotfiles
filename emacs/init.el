@@ -67,11 +67,11 @@
 (global-set-key (kbd "C-z") ctl-x-map) ; dvorak
 (global-set-key (kbd "M-z") 'execute-extended-command) ; dvorak
 (global-set-key (kbd "C-h") 'backward-delete-char-untabify) ; dvorak
-;(global-set-key (kbd "C-H") 'noah-backward-kill)
+(global-set-key (kbd "C-S-h") 'noah-backward-kill)
 (global-set-key (kbd "C-x C-o") 'other-frame)
 (global-set-key (kbd "M-g") 'goto-line)
 (global-set-key (kbd "M-p") 'hippie-expand)
-(global-set-key (kbd "M-m") 'goto-match-paren)
+(global-set-key (kbd "C-S-m") 'goto-match-paren)
 (global-set-key (kbd "C-?") 'help)
 
 ;;;; Textmate commands
