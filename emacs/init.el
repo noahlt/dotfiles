@@ -35,11 +35,15 @@
 (global-font-lock-mode 1)
 (show-paren-mode 1)
 (setq show-paren-delay 0)
-(setq uniquify-buffer-name-style 'post-forward)
 (global-auto-revert-mode 1)
 (global-visual-line-mode 1)
 
-(setq indent-tabs-mode nil)
+(setq-default tab-width 2)
+(setq-default indent-tabs-mode nil)
+
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward)
+
 
 ; jumpy scrolling sucks.
 (setq scroll-step 1
