@@ -160,6 +160,10 @@
 
 (add-to-list 'load-path "~/dotfiles/emacs")
 
+(package-initialize)
+(unless (package-installed-p 'scala-mode2)
+  (package-refresh-contents) (package-install 'scala-mode2))
+
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
 (dolist (extension (list "\\.text\\'" "\\.md\\'" "\\.markdown\\'"))
