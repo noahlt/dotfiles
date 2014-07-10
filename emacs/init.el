@@ -88,6 +88,10 @@
 
 ;;;; Navigation commands
 (global-set-key (kbd "M-n M-l") 'goto-line)
+(global-set-key (kbd "M-n M-s") #'(lambda ()
+                                    (interactive)
+                                    (switch-to-buffer "*scratch*")))
+(global-set-key (kbd "M-n M-b") 'switch-to-buffer)
 
 ;;;; git commands
 (global-set-key (kbd "M-g M-s") 'magit-status)
