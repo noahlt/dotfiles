@@ -191,6 +191,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Custom functions
 
+(load "projects.el")
+
 (defun noah-beginning-of-line ()
   "Go to beginning of line text.  If already there, go to beginning of line."
   (interactive)
