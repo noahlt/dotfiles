@@ -37,12 +37,12 @@ echo "Copying NoahDvorak to ~/Library/Keyboard Layouts"
 cp ./NoahDvorak.keylayout ~/Library/Keyboard\ Layouts/NoahDvorak.keylayout
 
 echo "Swapping Command_R and Option_R"
-/Library/org.pqrs/KeyRemap4MacBook/app/KeyRemap4MacBook_cli.app/Contents/MacOS/KeyRemap4MacBook_cli enable remap.commandR2optionR
-/Library/org.pqrs/KeyRemap4MacBook/app/KeyRemap4MacBook_cli.app/Contents/MacOS/KeyRemap4MacBook_cli enable remap.optionrcommandr
+/Applications/Karabiner.app/Contents/Library/bin/karabiner enable remap.commandR2optionR
+/Applications/Karabiner.app/Contents/Library/bin/karabiner enable remap.optionrcommandr
 
 echo "###########################################################################"
 echo "#                                                                         #"
-echo "#     Now open System Preferences > Language & Text and change your       #"
+echo "#     Now open System Preferences > Language & Region and change your     #"
 echo "#     input source to 'Noah Dvorak'.                                      #"
 echo "#                                                                         #"
 echo "###########################################################################"

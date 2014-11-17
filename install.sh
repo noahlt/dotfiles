@@ -9,9 +9,9 @@ if [ ! -d /Library/org.pqrs/KeyRemap4MacBook/ ]
 then
 	echo "Installing KeyRemap4MacBook..."
 	pushd ~/Downloads
-	curl -o ./KeyRemap4MacBook-7.5.0.pkg.zip http://pqrs.org/macosx/keyremap4macbook/files/KeyRemap4MacBook-7.5.0.pkg.zip
-	unzip KeyRemap4MacBook-7.5.0.pkg.zip
-	sudo installer -pkg ./KeyRemap4MacBook.pkg -target /
+	curl -o ./Karabiner-10.4.0.dmg https://pqrs.org/osx/karabiner/files/Karabiner-10.4.0.dmg
+	hdiutil attach ./Karabiner-10.4.0.dmg
+	sudo installer -pkg /Volumes/Karabiner-10.4.0/Karabiner.pkg -target /
 	popd
 
 	echo "###########################################################################"
