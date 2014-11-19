@@ -19,7 +19,7 @@ then
 	echo
 	echo "* Couldn't back up ~/.emacs to ~/.emacs.old because it already exists!"
 	echo "* If you don't care about the contents of ~/.emacs.old, then you can"
-        echo "* delete that file and try running this script again."
+    echo "* delete that file and try running this script again."
 	echo
 	echo "Quitting."
 	exit 1
@@ -30,6 +30,18 @@ then
 fi
 echo "Load emacs config from dotfiles repo instead of ~/.emacs"
 echo '(load "~/dotfiles/emacs/init.el")' > ~/.emacs
+
+# Bash
+
+if grep -q 'source ~/dotfiles/bash_config.sh' ~/.bash_profile
+then
+	echo "~/.bash_profile already sources ~/dotfiles/bash_config.sh; skipping..."
+else
+	echo "Sourcing ~/dotfiles/bash_config.sh from ~/.bash_profile"
+	echo -e '\n\n# Configuration to be shared across machines lives in the dotfiles repo' >> ~/.bash_profile
+	echo '# (see http://github.com/noahlt/dotfiles)'
+	echo 'source ~/dotfiles/bash_config.sh' >> ~/.bash_profile
+fi
 
 # Setup custom keyboard.
 
