@@ -43,12 +43,13 @@
 (defun use-project (label &rest directories)
   (mapc (lambda (path) (add-dir-to-current-project path)) directories))
 
-(use-project "Experimentation"
-  "~/workspace/science/src/scala/com/twitter/experiments"
-  "~/workspace/science/tests/scala/com/twitter/experiments")
+; TODO: be robust against missing directories.
+;(use-project "Experimentation"
+;  "~/workspace/science/src/scala/com/twitter/experiments"
+;  "~/workspace/science/tests/scala/com/twitter/experiments")
 
-(use-project "Logger"
-  "~/logger/")
+;(use-project "Logger"
+;  "~/logger/")
 
 (global-set-key (kbd "M-n M-p") 'find-project-file)
 
