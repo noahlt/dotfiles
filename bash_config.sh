@@ -28,7 +28,7 @@ GIT_PS1_SHOWDIRTYSTATE=1
 source ~/dotfiles/git_completion.sh
 
 # show the ten most recently used branches
-alias branches='for k in `git branch | sed s/^..//`; do echo -e `git log -1 --pretty=format:"%ci %Cgreen%cr%Creset" $k --`\\t"$k";done | sort | sed -E "s/^.{26}//" | tail -n 10 -r'
+alias branches='for k in `git branch | sed s/^..//`; do echo -e `git log -1 --pretty=format:"%ci %Cgreen%cr%Creset" $k --`\\t"$k";done | sort | sed -E "s/^.{26}//" | tail -n 20 -r'
 
 # check this page for colors: http://misc.flogisoft.com/bash/tip_colors_and_formatting
 PS1='\[\e[90m\]\t \[\e[94m\]\w \[\e[0m\]$(__git_ps1 "(%s)")\$ '
