@@ -39,8 +39,18 @@ then
 else
 	echo "Sourcing ~/dotfiles/bash_config.sh from ~/.bash_profile"
 	echo -e '\n\n# Configuration to be shared across machines lives in the dotfiles repo' >> ~/.bash_profile
-	echo '# (see http://github.com/noahlt/dotfiles)'
+	echo '# (see http://github.com/noahlt/dotfiles)' >> ~/.bash_profile
 	echo 'source ~/dotfiles/bash_config.sh' >> ~/.bash_profile
+fi
+
+# tmux
+
+if [ -e ~/.tmux.conf ]
+then
+	echo "~/.tmux.conf already exists; skipping..."
+else
+	echo "Symlinking dotfiles/tmux.conf to ~/.tmux.conf"
+	ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 fi
 
 # Setup custom keyboard.

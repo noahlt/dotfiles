@@ -15,6 +15,12 @@ function killport {
     fi
 }
 
+get_env () {
+	VARNAME=$1
+	SOURCE_SERVER=$2
+	eval $(ssh $SOURCE_SERVER "env | grep '^$VARNAME='" | sed 's/.*/export &/')
+}
+
 # easier to type on dvorak:
 alias i='ls -F' # 'i' like inventory
 alias ch=cd # CHange directory
@@ -37,4 +43,8 @@ PATH=~/dotfiles/bin:$PATH
 
 # Those who forget the past are doomed to repeat it
 HISTFILESIZE=1000000
+
+function title() {
+    printf "\033k$1\033\\"
+}
 

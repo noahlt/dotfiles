@@ -17,9 +17,6 @@
 (set-face-background 'default "grey9")
 (set-face-foreground 'default "grey75")
 
-; Don't anti-alias fonts. Only works on OS X.
-(setq ns-antialias-text nil)
-
 ;(setq-default cursor-type 'bar)
 (blink-cursor-mode 't)
 
@@ -123,6 +120,7 @@
 (global-set-key (kbd "A-3") (make-insert-function "#"))
 (global-set-key (kbd "A-4") (make-insert-function "$"))
 (global-set-key (kbd "A-5") (make-insert-function "%"))
+(global-set-key (kbd "A-l") (make-insert-function "λ"))
 
 ;;;; Symbols
 
@@ -163,8 +161,9 @@
 ;; Modes
 
 (require 'package)
-(add-to-list 'package-archives
-  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.org/packages/")))
 
 (add-to-list 'load-path "~/dotfiles/emacs")
 
@@ -177,7 +176,12 @@
 (dolist (extension (list "\\.text\\'" "\\.md\\'" "\\.markdown\\'"))
   (add-to-list 'auto-mode-alist (cons extension 'markdown-mode)))
 
+(autoload 'terraform-mode "terraform-mode"
+  "Major mode for editing Terraform configuraiton files" t)
+(dolist (extension (list "\\.tf\\'"))
+  (add-to-list 'auto-mode-alist (cons extension 'terraform-mode)))
 
+(setq terraform-indent-level 4)
 
 ; Make emacs' path the same as bash's path.
 ;(require 'exec-path-from-shell)
@@ -253,10 +257,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(quack-programs (quote ("mzscheme" "bigloo" "csi" "csi -hygienic" "gosh" "gracket" "gsi" "gsi ~~/syntax-case.scm -" "guile" "kawa" "mit-scheme" "racket" "racket -il typed/racket" "rs" "scheme" "scheme48" "scsh" "sisc" "stklos" "sxi"))))
+ '(quack-programs
+   (quote
+    ("mzscheme" "bigloo" "csi" "csi -hygienic" "gosh" "gracket" "gsi" "gsi ~~/syntax-case.scm -" "guile" "kawa" "mit-scheme" "racket" "racket -il typed/racket" "rs" "scheme" "scheme48" "scsh" "sisc" "stklos" "sxi"))))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "grey9" :foreground "grey75" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "apple" :family "Monaco")))))
+ '(default ((t (:inherit nil :stipple nil :background "grey9" :foreground "grey75" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight light :height 100 :width normal :foundry "nil" :family "Source Code Pro")))))
