@@ -57,7 +57,7 @@
 
 ;; Open all links in a new browser window, and use Google Chrome.
 (setq browse-url-browser-function (quote browse-url-generic))
-(setq browse-url-generic-program "chrome-new-window.sh")
+(setq browse-url-generic-program "open")
 
 
 ;; Key bindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -182,15 +182,6 @@
   (add-to-list 'auto-mode-alist (cons extension 'terraform-mode)))
 
 (setq terraform-indent-level 4)
-
-; Make emacs' path the same as bash's path.
-;(require 'exec-path-from-shell)
-;(exec-path-from-shell-initialize)
-
-; Modern Scheme mode featuring Racket support.
-;(require 'quack)
-; Way easier to type than C-c C-q
-;(setq quack-scheme-mode-keymap-prefix "\C-c\C-s")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Custom functions
