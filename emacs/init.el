@@ -6,13 +6,34 @@
 ;; General behavior
 
 (setq user-emacs-directory "~/dotfiles/emacs")
-
+(require 'cl)
 
 ;; Appearance 
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+
+; Don't anti-alias fonts. Only works on OS X.
+(setq ns-antialias-text nil)
+
+(defun font-exists-p (font)
+  "check if font exists"
+  (if (null (x-list-fonts font))
+      nil
+    t))
+
+
+(if (font-exists-p "Source Code Pro 12")
+    (progn
+      (set-face-attribute 'default nil :font "Source Code Pro 12")
+      (setq ns-antialias-text t))
+  (progn
+      (set-face-attribute 'default nil :font "Inconsolata 10")
+      (setq ns-antialias-text nil)))
+
+(setq-default cursor-type 'bar)
+(blink-cursor-mode 't)
 
 (set-face-background 'default "grey9")
 (set-face-foreground 'default "grey75")
@@ -67,7 +88,7 @@
 (global-set-key (kbd "M-c") 'capitalize-previous-word)
 (global-set-key (kbd "C-<return>") 'newline-and-indent)
 (global-set-key (kbd "C-z") ctl-x-map) ; dvorak
-(global-set-key (kbd "M-z") 'execute-extended-command) ; dvorak
+(global-set-key (kbd "M-z") 'interactive-m-x) ; dvorak
 (global-set-key (kbd "C-h") 'backward-delete-char-untabify) ; dvorak
 (global-set-key (kbd "C-S-h") 'noah-backward-kill)
 (global-set-key (kbd "M-p") 'hippie-expand)
@@ -220,6 +241,12 @@
 	  (kill-region line-begin init-pos)
 	(backward-kill-word 1)))))
 
+(defun interactive-m-x ()
+  (interactive)
+  (call-interactively
+   (intern
+    (ido-completing-read "M-x " (all-completions "" obarray  'commandp)))))
+
 (defun insert-date (prefix)
   "Insert the current date."
   (interactive "P")
@@ -252,9 +279,10 @@
    (quote
     ("mzscheme" "bigloo" "csi" "csi -hygienic" "gosh" "gracket" "gsi" "gsi ~~/syntax-case.scm -" "guile" "kawa" "mit-scheme" "racket" "racket -il typed/racket" "rs" "scheme" "scheme48" "scsh" "sisc" "stklos" "sxi"))))
 
-(custom-set-faces
+;(custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "grey9" :foreground "grey75" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight light :height 100 :width normal :foundry "nil" :family "Source Code Pro")))))
+; '(default ((t (:inherit nil :stipple nil :background "grey9" :foreground "grey75" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight light :height 100 :width normal :foundry "nil" :family "Source Code Pro")))))
+
