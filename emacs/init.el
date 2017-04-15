@@ -14,17 +14,7 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
-; Don't anti-alias fonts. Only works on OS X.
-(setq ns-antialias-text nil)
-
-(defun font-exists-p (font)
-  "check if font exists"
-  (if (null (x-list-fonts font))
-      nil
-    t))
-
-
-(if (font-exists-p "Source Code Pro 12")
+(if (x-list-fonts "Source Code Pro 12")
     (progn
       (set-face-attribute 'default nil :font "Source Code Pro 12")
       (setq ns-antialias-text t))
@@ -37,9 +27,6 @@
 
 (set-face-background 'default "grey9")
 (set-face-foreground 'default "grey75")
-
-;(setq-default cursor-type 'bar)
-(blink-cursor-mode 't)
 
 (set-face-background 'mode-line "grey15")
 (set-face-foreground 'mode-line "#ffffff")
@@ -164,7 +151,7 @@
 (global-set-key (kbd "C-z C-z")
 		(lambda ()
 		  (interactive)
-		  (find-file "~/notes/Index")))
+		  (find-file (format-time-string "~/notes/%Y-%m-%d.org"))))
 
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'alt)
