@@ -37,7 +37,7 @@ source ~/dotfiles/git_completion.sh
 alias branches='for k in `git branch | sed s/^..//`; do echo -e `git log -1 --pretty=format:"%ci %Cgreen%cr%Creset" $k --`\\t"$k";done | sort | sed -E "s/^.{26}//" | tail -n 20 -r'
 
 # check this page for colors: http://misc.flogisoft.com/bash/tip_colors_and_formatting
-PS1='\[\e[90m\]\t \[\e[94m\]\w \[\e[0m\]$(__git_ps1 "(%s)")\$ '
+PS1='\[\e[90m\]\t \[\e[94m\]\w \[\e[0m\]$(__git_ps1 "[%s]")\$ '
 
 PATH=~/dotfiles/bin:$PATH
 
