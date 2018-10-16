@@ -108,7 +108,7 @@
      (interactive)
      (insert ,text)))
 
-(global-set-key (kbd "A-u") (make-insert-function "["))
+(global-set-key (kbd "A-i") (make-insert-function "["))
 (global-set-key (kbd "A-h") (make-insert-function "]"))
 
 (global-set-key (kbd "A-e") (make-insert-function "("))
@@ -186,6 +186,21 @@
   (add-to-list 'auto-mode-alist (cons extension 'terraform-mode)))
 
 (setq terraform-indent-level 4)
+
+(unless (package-installed-p 'clojure-mode)
+  (package-install 'clojure-mode))
+
+(require 'clojure-mode)
+
+(define-clojure-indent
+  (render 1)
+  (query 1)
+  (ident 1)
+  (dom/div 1)
+  (dom/label 1)
+  (dom/li 1)
+  (dom/button 1)
+  (params 1))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Custom functions

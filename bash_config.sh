@@ -39,7 +39,7 @@ alias branches='for k in `git branch | sed s/^..//`; do echo -e `git log -1 --pr
 # check this page for colors: http://misc.flogisoft.com/bash/tip_colors_and_formatting
 PS1='\[\e[90m\]\t \[\e[94m\]\w \[\e[0m\]$(__git_ps1 "[%s]")\$ '
 
-PATH=~/dotfiles/bin:$PATH
+PATH=~/bin:~/dotfiles/bin:~/.local/bin:$PATH
 
 # Those who forget the past are doomed to repeat it
 HISTFILESIZE=1000000
