@@ -5,7 +5,7 @@ This repo is a menagerie of my configuration files from various times in my life
 
 ### Keyboard customizations:
 
- 1. switch keyboard layout to Dvorak
+ 1. switch keyboard layout to Noah Dvorak
  2. when holding down the Option modifier, keys on home row insert parentheses and braces.
  3. swap the right Command and Option keys
 
