@@ -19,7 +19,7 @@ then
 	echo
 	echo "* Couldn't back up ~/.emacs to ~/.emacs.old because it already exists!"
 	echo "* If you don't care about the contents of ~/.emacs.old, then you can"
-    echo "* delete that file and try running this script again."
+	echo "* delete that file and try running this script again."
 	echo
 	echo "Quitting."
 	exit 1
@@ -30,18 +30,6 @@ then
 fi
 echo "Load emacs config from dotfiles repo instead of ~/.emacs"
 echo '(load "~/dotfiles/emacs/init.el")' > ~/.emacs
-
-# Bash
-
-if grep -q 'source ~/dotfiles/bash_config.sh' ~/.bash_profile
-then
-	echo "~/.bash_profile already sources ~/dotfiles/bash_config.sh; skipping..."
-else
-	echo "Sourcing ~/dotfiles/bash_config.sh from ~/.bash_profile"
-	echo -e '\n\n# Configuration to be shared across machines lives in the dotfiles repo' >> ~/.bash_profile
-	echo '# (see http://github.com/noahlt/dotfiles)' >> ~/.bash_profile
-	echo 'source ~/dotfiles/bash_config.sh' >> ~/.bash_profile
-fi
 
 # tmux
 
@@ -55,12 +43,16 @@ fi
 
 # Setup custom keyboard.
 
-echo "Copying NoahDvorak to ~/Library/Keyboard Layouts"
-cp ./Noah\ Dvorak.bundle ~/Library/Keyboard\ Layouts/
+KEYLAYOUT_DEST='~/Library/Keyboard Layouts/Noah Dvorak.bundle/'
+if [ -d "$KEYLAYOUT_DEST" ]
+then
+	echo "Noah Dvorak keylayout already installed"
+else
+	echo "Copying NoahDvorak to ~/Library/Keyboard Layouts"
+	cp -r ./Noah\ Dvorak.bundle ~/Library/Keyboard\ Layouts/
+fi
 
-echo "Swapping Command_R and Option_R"
-/Applications/Karabiner.app/Contents/Library/bin/karabiner enable remap.commandR2optionR
-/Applications/Karabiner.app/Contents/Library/bin/karabiner enable remap.optionrcommandr
+# TODO: Karabiner config https://karabiner-elements.pqrs.org/docs/manual/misc/command-line-interface/
 
 echo "###########################################################################"
 echo "#                                                                         #"
