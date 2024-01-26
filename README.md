@@ -14,7 +14,7 @@ The letters in Noah Dvorak are the same as Dvorak, except the I, U, and K keys a
 (U -> I, I -> K, and K -> U). This is based on two observations:
 
  1. `i` is much more frequently used in English than `u`.
- 2. The `k` key's position (`v` in QWERTY) is actually ergonimically easier to reach than
+ 2. The `k` key's position (`v` in QWERTY) is actually ergonomically easier to reach than
     the default `i` key position (`g` in QWERTY).
 
 I find this much more comfortable to type.
