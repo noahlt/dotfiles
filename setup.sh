@@ -56,7 +56,7 @@ fi
 # Setup custom keyboard.
 
 echo "Copying NoahDvorak to ~/Library/Keyboard Layouts"
-cp ./NoahDvorak.keylayout ~/Library/Keyboard\ Layouts/NoahDvorak.keylayout
+cp ./Noah\ Dvorak.bundle ~/Library/Keyboard\ Layouts/
 
 echo "Swapping Command_R and Option_R"
 /Applications/Karabiner.app/Contents/Library/bin/karabiner enable remap.commandR2optionR
